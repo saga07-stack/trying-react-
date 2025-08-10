@@ -1,25 +1,11 @@
 import React from 'react'
-
-import CourseInfo from './component/CourseInfo';
-
-const courseName = "reactBasic";
-const instructor = "mandip Dhakal";
-const duration = "2hrs";
-
+import UserNames from "./component/UserNames";
 const App = () => {
-
   return (
     <div>
-     < CourseInfo 
-      courseName={courseName}
-      instructor={instructor}
-      duration={duration}
-     
-     
-      />
-     
-     
-     
+      <UserNames >
+        {name = "sagar"} 
+      </UserNames>
     </div>
   );
 };
