@@ -10,10 +10,67 @@ import EmployeeInfo from './component/4&5-props (hwSolving)/EmployeeInfo';
 import RecipeDetails from './component/4&5-props (hwSolving)/RecipeDetails';
 import CourseInfo from './component/4&5-props (hwSolving)/CourseInfo';
 import TravelDestination from './component/4&5-props (hwSolving)/TravelDestination';
-import UserInfo from './component/4&5-props (usingDestructing)/UserInfo';
+import UserInfo from './component/usingDestructing/UserInfo';
+import ProductDetail from './component/usingDestructing/ProductDetail';
+import StudentProfiles from './component/usingDestructing/StudentProfiles';
+import MovieDetail from './component/usingDestructing/MovieDetail';
+const Details = {
+  name : "Movie",
+  movieDetails :{
+movieName : "gabbarshing",
+  director : "sagarparsad",
+  releaseYear : 1999,
+  },
+
+};
+const about = {
+   movieDetails :{
+movieName : "gabbarshing",
+  director : "sagarparsad",
+  releaseYear : 1999,
+  },
+  name:"sagar",
+  nick : "saga",
+};
+
+
+const studentName = "sagar";
+const grade = 12;
+const school = "japan .com";
+
+const productName = "Apple Watch";
+const price = 200;
+const inStock = false;
 const App = () => {
   return (
+    
     <div>
+      <MovieDetail
+     about = {about}
+      ></MovieDetail>
+
+
+      <StudentProfiles
+      studentName = {studentName}
+      grade = {grade}
+      school = {school}
+
+      ></StudentProfiles>
+
+
+
+      Book
+      <ProductDetail
+      productName={productName}
+      inStock={inStock }
+      price={price}
+      
+      ></ProductDetail>
+      <UserInfo
+      name = "sagar"
+      age={23}
+      city={"Gaindakot"}
+      ></UserInfo>
       
 
       <TravelDestination
