@@ -1,3 +1,5 @@
+import WeatherReports from "./component/withDestructure/WeatherReports";
+import MovieInfo from "./component/withDestructure/MovieInfo";
 import BookDetails from "./component/withDestructure/BookDetails";
 import BlogPosts from "./component/withDestructure/BlogPosts"
 import ProductCards from './component/withDestructure/ProductCards';
@@ -96,6 +98,15 @@ const App = () => {
       <BookDetails
       book={book}
       ></BookDetails>
+      <MovieInfo
+      movie = {movie}
+      ></MovieInfo>
+      <WeatherReports
+      weather={weather}
+      ></WeatherReports>
+      <EventDetails
+      event = {event}
+      ></EventDetails>
     </div>
   );
 };
