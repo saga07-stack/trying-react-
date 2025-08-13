@@ -1,162 +1,79 @@
 import React from 'react'
-import UserNames from "./component/UserNames";
-import OneHwUserInfo from './component/OneHwUserInfo';
-import ProductDetials from './component/4&5-props (hwSolving)/ProductDetials';
-import BookInfo from './component/4&5-props (hwSolving)/BookInfo';
-import StudentProfile from './component/4&5-props (hwSolving)/StudentProfile';
-import MovieDetails from './component/4&5-props (hwSolving)/MovieDetails';
-import CarDetails from './component/4&5-props (hwSolving)/CarDetails';
-import EmployeeInfo from './component/4&5-props (hwSolving)/EmployeeInfo';
-import RecipeDetails from './component/4&5-props (hwSolving)/RecipeDetails';
-import CourseInfo from './component/4&5-props (hwSolving)/CourseInfo';
-import TravelDestination from './component/4&5-props (hwSolving)/TravelDestination';
-import UserInfo from './component/usingDestructing/UserInfo';
-import ProductDetail from './component/usingDestructing/ProductDetail';
-import StudentProfiles from './component/usingDestructing/StudentProfiles';
-import MovieDetail from './component/usingDestructing/MovieDetail';
-const Details = {
-  name : "Movie",
-  movieDetails :{
-movieName : "gabbarshing",
-  director : "sagarparsad",
-  releaseYear : 1999,
-  },
+import MovieDetail from "./component/usingDestructing/MovieDetail"
+import CarDetail from './component/usingDestructing/CarDetail';
+import EmployeeInfos from './component/usingDestructing/EmployeeInfos';
+import RecipeDetail from './component/usingDestructing/RecipeDetail';
+import CourseInfos from './component/usingDestructing/CourseInfos';
+import TravelDestinations from './component/usingDestructing/TravelDestinations';
 
-};
-const about = {
-   movieDetails :{
-movieName : "gabbarshing",
-  director : "sagarparsad",
-  releaseYear : 1999,
-  },
-  name:"sagar",
-  nick : "saga",
-};
+const location = "mustang";
+const country = "Nepal";
+const bestTimeTOVisit = "April to May"
+
+const instructor = "Mandip Dhakal";
+const duration = "4 weeks";
+const courseName = "React beginner to full stack"
+const year = "2019";
+const make = "Honda";
+const model = "NSX";
+
+const recipeName = "chowmin";
+const cookingTime = "10min";
+const ingredients = "200g chop onion 500g noodels and slat oil etc "
+
+const employeeName = "sagar";
+const position = "CEO";
+const department = "backEnd";
 
 
-const studentName = "sagar";
-const grade = 12;
-const school = "japan .com";
-
-const productName = "Apple Watch";
-const price = 200;
-const inStock = false;
+const movieName = "onePiece";
+const director = "yoshiro";
+const releaseYear = 2003;
 const App = () => {
   return (
-    
     <div>
+      <TravelDestinations
+      location={location}
+      country={country}
+      bestTimeToVisit={bestTimeTOVisit}
+      ></TravelDestinations>
+      <CourseInfos
+      instructor={instructor}
+      duration={duration}
+      courseName={courseName}
+      ></CourseInfos>
+      <RecipeDetail
+      recipeName={recipeName}
+      cookingTime={cookingTime}
+      ingredients={ingredients}
+      ></RecipeDetail>
+
+
+      <EmployeeInfos
+      employeeName={employeeName}
+      position={position}
+      department={department}
+
+      ></EmployeeInfos>
+
+
+      <CarDetail
+      year={year}
+      model={model}
+      make={make}
+      
+      
+      ></CarDetail>
+
+
+
       <MovieDetail
-     about = {about}
+      movieName={movieName}
+      director={director}
+      releaseYear={releaseYear}
+      
       ></MovieDetail>
-
-
-      <StudentProfiles
-      studentName = {studentName}
-      grade = {grade}
-      school = {school}
-
-      ></StudentProfiles>
-
-
-
-      Book
-      <ProductDetail
-      productName={productName}
-      inStock={inStock }
-      price={price}
-      
-      ></ProductDetail>
-      <UserInfo
-      name = "sagar"
-      age={23}
-      city={"Gaindakot"}
-      ></UserInfo>
-      
-
-      <TravelDestination
-      location = "mustang"
-      country = "nepal"
-      bestTimeToVisit = "april"
-
-      ></TravelDestination>
-
-
-      <CourseInfo
-      name = "React beginner to beyond"
-      instructor = "Mandip Dhakal"
-      duration = {12}
-      ></CourseInfo>
-
-
-      <RecipeDetails
-      recipe = "dal"
-      cookingTime = {20}
-      ingredients = "1 spoon of oil 1 cup of salt"
-
-
-      ></RecipeDetails>
-
-
-
-      <EmployeeInfo
-      employeeName = "shankar"
-      position = "CEO"
-      department = "Moping and cleaning"
-      
-      ></EmployeeInfo>
-      <CarDetails
-      year = {2002}
-      make = "honda"
-      model = "civic TypeR"
-      ></CarDetails>
-      <MovieDetails
-      movieName = "batMan"
-      directed = "nikhil"
-      release = "2004"
-      
-      ></MovieDetails>
-      <StudentProfile
-      studentName = "sagar"
-      grade = "12th"
-      school = "selfSchool"
-      ></StudentProfile>
-
-      <BookInfo
-      title = "one Piece"
-      author = "sagar"
-      year = {2003}
-
-      
-      ></BookInfo>
-      <ProductDetials
-      productName = "AppleWatch"
-      cost = {`$ ${300}`}
-      inStock = {true}
-      
-      
-      ></ProductDetials>
-
-
-      <OneHwUserInfo
-      name = "kripa"
-      age = {24}
-      city = "gaindakot"
-      
-      
-      ></OneHwUserInfo>
- 
-
-
-     <UserNames 
-     name = "sagar" 
-     age = {23}
-     city = "chitwan"
-
-     
-     
-     ></UserNames>
     </div>
   );
 };
-
 export default App;

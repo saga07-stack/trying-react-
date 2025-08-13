@@ -1,14 +1,11 @@
 import React from 'react'
 
-const MovieDetail = ({movieDetails}) => {
-  const { movieName, director , releaseYear} = about.movieDetails;
+const MovieDetail = ({movieName,director, releaseYear}) => {
   return (
     <div>
-      <h1> {director} and {movieName} and {releaseYear}  </h1>
-    
+      <h1> {movieName} is directed by {director} was in {releaseYear} </h1>
     </div>
   );
 };
 
 export default MovieDetail;
-
