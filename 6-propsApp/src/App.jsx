@@ -1,11 +1,20 @@
-import React from 'react'
-import BookDetail from "./component/BookDetail"
+import BookDetails from "./component/withDestructure/BookDetails";
+import BlogPosts from "./component/withDestructure/BlogPosts"
+import ProductCards from './component/withDestructure/ProductCards';
+import React from 'react';
+import BookDetail from "./component/BookDetail";
 import MovieInfos from './component/MovieInfos';
 import WeatherReport from './component/WeatherReport';
 import EventDetail from './component/EventDetail';
-import Carinfos from "./component/Carinfos"
+import Carinfos from "./component/Carinfos";
 import StudentInfos from './component/StudentInfos';
 import MenuItem from './component/MenuItem';
+import UserProfile from './component/withDestructure/UserPofile';
+const user = {
+  name: "Sita",
+  age: 28,
+  country: "Nepal",
+};
 const movie = {
   name: "Inception",
   director: "Christopher Nolan",
@@ -41,9 +50,22 @@ const menuItem = {
   price: 150,
   isVegetarian: true,
 };
+const product = {
+  id: 101,
+  title: "Laptop",
+  price: 45000,
+};
+const post = {
+  title: "React Tips",
+  author: "Mandip",
+  date: "2025-08-09",
+};
 const App = () => {
   return (
     <div>
+       <UserProfile
+       user = {user} 
+       ></UserProfile>
       <MenuItem
       menu = {menuItem}
       ></MenuItem>
@@ -65,6 +87,15 @@ const App = () => {
       <BookDetail
       book = {book}
       ></BookDetail>
+      <ProductCards
+      product={product}
+      ></ProductCards>
+      <BlogPosts
+      post = {post}
+      ></BlogPosts>
+      <BookDetails
+      book={book}
+      ></BookDetails>
     </div>
   );
 };
