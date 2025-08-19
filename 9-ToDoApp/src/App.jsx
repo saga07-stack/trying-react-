@@ -2,36 +2,55 @@ import React, { useState } from 'react'
 
 const  App = () => {
   const [newTask, setNewTask] = useState("");
-  const [tasks, setTasks] = useState([]);
   const handelChange = (e) =>{
-  setNewTask(e.target.value);
+    setNewTask(e.target.value);
   };
-  // const randomId = () => Math.random() + Date.now();
-  const handelAddTask = () =>{
+  const [tasks, setTask] = useState([]);
+  const  handelAdd = () =>{
+    if(newTask.trim() === "") return;
     const task = {
-      id:  Date.now()+ Math.random(), 
-      text:newTask,
+      id : Math.random() + Date.now(),
+      text: newTask,
       complete: false,
-    }
-    setTasks([...tasks,task]);
+    };
+    setTask ([...tasks,task]);
     setNewTask("");
   };
-const handelComplete = tasks.map((task)=>{
-    task.id === id ? {...task, complete: task.complete} : task;
-});
+  const handelToggel = (id)=>{
+    const updatedTask = tasks.map ((task)=>
+     id === task.id ? {...task,completed : !task.completed} : task
+    );
+    setTask(updatedTask);
+    
+  }
+  const handelDelete = (id) =>{
+    const confirmDeletion = confirm("are you sure want to delete ");
+    if (confirmDeletion) {
+   const updatedTask = tasks.filter ((task)=>
+    task.id !== id  )
+    setTask(updatedTask);
+    }
+ 
+  }
   return (
     <div>
-      <h1> To Do App</h1>
-      <input onChange={handelChange}
-      value={newTask}
-       type="text" placeholder='Enter Your Task' />
+      <h1 >  to do app</h1>
+      <input type="text" placeholder='enter your task' 
+       onChange={handelChange}
+       value={newTask}
 
-      <button onClick={handelAddTask }  >Add</button>
+
+      />
+      <button onClick={handelAdd}  >Add</button>
+
       <ul>
-        { tasks.map((task)=>( <li key={task.id} > {task.text} <button onClick={()=> handelComplete(task)} >✅</button> </li> )
-         
-        )}
-         
+        {tasks.map((task)=>(
+          <li style={{textDecoration:task.completed ? "line-through" : "none", 
+            color:task.completed ? "gray" : "white"
+          }} key={task.id} > {task.text} <button onClick={() => handelToggel(task.id)} >✅</button> 
+          <button onClick={()=>handelDelete(task.id)} >❌</button>
+           </li>
+        ))}
       </ul>
     </div>
   );
