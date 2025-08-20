@@ -1,53 +1,67 @@
 import React, { useState } from 'react'
+import ToDoInput from './components/ToDoInput';
+import ToDoLIst from './components/ToDoLIst';
 
 const  App = () => {
-   const [newTasks, setNewTask] = useState("");
-   const handelChange  = (e) =>{
+  const [newTask, setNewTask] = useState("");
+  const handelChange = (e) =>{
     setNewTask(e.target.value);
-   };
- 
-   const [tasks, setTasks] = useState([]);
-   const handelAdd = ()=>{
-    const upDatedTasks = {
-      id: Math.random() + Date.now(),
-      text: newTasks,
-      completed : false,
+  };
+  const [tasks, setTask] = useState([]);
+  const  handelAdd = () =>{
+    if(newTask.trim() === "") return;
+    const task = {
+      id : Math.random() + Date.now(),
+      text: newTask,
+      complete: false,
     };
-    setTasks([...tasks, upDatedTasks]);
-    setNewTask("")
-   };
-   const handelDone = (id)=>{
-    const upDatedTasks = tasks.map((task)=>(
-      id === task.id ? {...task, completed : !task.completed} : task
-    ));
-    setTasks(upDatedTasks);
-    
-   };
-
-  const handelDelete = (id) =>{
-    const confirmDeletion = confirm ("are you sure want to delete");
-    if (confirmDeletion) {
-const updatedTasks = tasks.filter ((task)=>
-      id !== task.id 
+    setTask ([...tasks,task]);
+    setNewTask("");
+  };
+  const handelToggle = (id)=>{
+    const updatedTask = tasks.map ((task)=>
+     id === task.id ? {...task,completed : !task.completed} : task
     );
-    setTasks (updatedTasks);
-    }
+    setTask(updatedTask);
     
+  }
+  const handelDelete = (id) =>{
+    const confirmDeletion = confirm("are you sure want to delete ");
+    if (confirmDeletion) {
+   const updatedTask = tasks.filter ((task)=>
+    task.id !== id  )
+    setTask(updatedTask);
+    }
+ 
   }
   return (
     <div>
-      <h1>To Do App</h1>
-      <input type="text" 
-      placeholder='Enter your task'
-      onChange={handelChange}
-       value={newTasks}
+     <ToDoInput
+     handelChange = {handelChange}
+     handelAdd = {handelAdd}
+     ></ToDoInput>
+     <ToDoList
+     handelDelete = {handelDelete}
+     handelToggle = {handelToggle}
+
+     ></ToDoList>
+      <h1 >  to do app</h1>
+      <input type="text" placeholder='enter your task' 
+       handelChange={handelChange}
+       value={newTask}
+
+
       />
-      <button onClick={handelAdd}>Add</button>
+      <button onClick={handelAdd}  >Add</button>
+
       <ul>
-        {tasks.map((task)=> 
-        <li key={task.id}> 
-         <button onClick={()=> handelDone(task.id)} style={{ textDecoration: task.completed ? "line-through" : "none" }}> ✅ {task.text}</button> 
-          <button onClick={ ()=> handelDelete (task.id)} >❌</button> </li> )}
+        {tasks.map((task)=>(
+          <li style={{textDecoration:task.completed ? "line-through" : "none", 
+            color:task.completed ? "gray" : "white"
+          }} key={task.id} > {task.text} <button onClick={() => handelToggle(task.id)} >✅</button> 
+          <button onClick={()=>handelDelete(task.id)} >❌</button>
+           </li>
+        ))}
       </ul>
     </div>
   );
