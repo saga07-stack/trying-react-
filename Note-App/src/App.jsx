@@ -40,7 +40,10 @@ setNotes(upDatedNotes);
 setEditingId(null);
 setEditingText("");
 };
-console.log(notes)
+const [search, setSearch] = useState("");
+const handelSearch = (e) =>{
+
+}
 
   return (
     <div>
@@ -54,8 +57,9 @@ console.log(notes)
       <button onClick={handelAddNote}>Add</button>
 
       <input type="text" placeholder='Search' />
-      <button>Search</button>
+      <button onClick={handelSearch} >Search</button>
       <h1>{newNote}</h1>
+
 
       <ul>
         {notes.map((note) => (
