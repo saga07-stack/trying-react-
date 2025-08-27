@@ -5,6 +5,7 @@ const  App = () => {
   const [notes, setNote] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editingText, setEditingText] = useState("");
+  const [search , setSearch]= useState("");
   const handelAddNote = () =>{
     const upDatedNote = {
       id: Date.now()+ Math.random(),
@@ -31,12 +32,18 @@ const  App = () => {
   }
   //  handel editSave
   const handelEditedSave = (id) =>{
-    const upDatedNote = notes.map((note)=>(
+    const upDatedNote = notes.map((note)=>
        id === note.id ? {...note, text:editingText} : note
-    ));
+    );
   setNote(upDatedNote);
+  setEditingId(null);
+  setEditingText("");
   };
-  console.log(notes);
+  // search 
+ const filteredNote = notes.filter((note)=>(
+  note.text.toLowerCase().includes(search.toLowerCase())
+ ))
+  console.log(search);
   return (
     <div>
       <h1>Note App</h1>
@@ -44,19 +51,21 @@ const  App = () => {
       value={newNote}
       onChange={(e) => setNewNote(e.target.value)} />
       <button onClick={handelAddNote} >Add</button>
-      <input type="text" placeholder='Search' />
+      <input type="text" placeholder='Search' 
+      onChange={(e)=> setSearch(e.target.value)} />
       <button>Search</button>
       <ul>
-        {notes.map((note)=>(
+        {filteredNote.map((note)=>(
           <li key={note.id} >
             {editingId === note.id ? ( 
               <div>
                 <input type="text"
                 value={editingText}
                 onChange={(e) => setEditingText(e.target.value)} />
-             <button onChange={()=> handelEditedSave(note.id)}  >Save</button>
+             <button onClick={()=> handelEditedSave(note.id)}  >Save</button>
              <button onClick={handelEditCancel} >Cancel</button>
-            </div> ) : (
+            </div>
+             ) : (
               <div>
                  {note.text} 
                 <button onClick={()=> handelEdit (note.id, note.text)} >Edit</button>
