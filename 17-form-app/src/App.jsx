@@ -1,19 +1,46 @@
-import React from 'react'
-import { FaInstagram } from "react-icons/fa";
-import { FaLine } from "react-icons/fa";
-import { FaViber } from "react-icons/fa6";
-import { GrLike } from "react-icons/gr";
+import React, { useState } from 'react'
 
 const  App = () => {
+  const [formDate, setFormData] = useState({ id: Date.now(), name: "", email: ""});
+  const [formDatas, setFormDatas] = useState("");
+  const handelChange = (e)=>{
+   const {name, value} = e.target;
+   setFormData ({...formDatas, [name]:value , id: Date.now()})
+   
+  }
+const handelSubmit= (e)=>{
+  e.preventDefault();
+  setFormDatas([...formDatas , formDate])
+  setFormData({id:"", name:"", email:""})
+}
+const handelDelete = (id) =>{
+  setFormDatas(formDatas.filter((data)=> data.id === id ));
+}
+console.log(formDate)
   return (
     <div>
-      <li>
-     <FaInstagram size={100} color='orange' />
-     <FaLine size={100} color='green' />
-     <FaViber size={100} color='purple' 
-      />
-      <button> <GrLike size={100} color='blue' /> </button>
-      </li>
+      <h1>form</h1>
+     
+      <form action="" 
+      onSubmit={handelSubmit}>
+         <label htmlFor="">name :</label>
+        <input  onChange={handelChange} type="text " 
+        name='name'
+        placeholder='name'
+         /> 
+         <br />
+          <label htmlFor="">email :</label>
+        <input  onChange={handelChange} type="text " 
+        name='email'
+        placeholder='email'
+         /> 
+         <button type='submit' >Submit</button>
+      </form>
+      <ul>
+        {formDatas.map((data)=>(
+          <li key={data.id} > {date.name}  <button onClick={()=>handelDelete(data.id)} > Delete</button> </li>
+        ))}
+      </ul>
     </div>
   )
 }
