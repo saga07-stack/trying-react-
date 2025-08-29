@@ -1,27 +1,19 @@
 import React, { createContext, useState } from 'react'
-import Parent from './components/Parent';
-const ThemeContext = createContext();
+ 
+ const UserContext = createContext();
+
 const  App = () => {
-  const [theme, setTheme] = useState("light");
-
+  const [user, setUser]= useState(null);
   return (
+    <div>
+      <h1>Login System</h1>
+      <UserContext.Provider
+      value={{user, setUser}}>
 
-    <div style={{
-      background: theme === "light" ? "white": "dark",
-      color: theme === "light" ? "black" : "light",
-      width: "100vw",
-      height:"100vh"
-    }} >
-      <h1>Theme Changer</h1>
-    <ThemeContext.Provider
-    value={{theme, setTheme}}
-    >
-    <Parent/>
-
-    </ThemeContext.Provider>
+      </UserContext.Provider>
     </div>
-  );
-};
+  )
+}
 
-export default  App;
-export {ThemeContext}
+export default  App
+export{UserContext}
