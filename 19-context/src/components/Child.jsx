@@ -1,27 +1,17 @@
-// import React, { useContext } from 'react'
-// import { UserContext } from '../App'
-
-// const  Child = () => {
-// const user1 = useContext(UserContext);
-//   return (
-//     <div>
-//         <h1> {user1} </h1>
-//     </div>
-//   )
-// }
-
-// export default  Child
-
 import React, { useContext } from 'react'
-import { ItemContext } from '../App'
+import { ThemeContext } from '../App'
 
 const  Child = () => {
-    const {item , model }  = useContext(ItemContext)
+    const {theme, setTheme} = useContext(ThemeContext);
+    const toggleTheme = ()=>{
+        setTheme(theme === "light" ? "dark":"light")
+    }
   return (
     <div>
-        <h1>This is {item} and model  {model} </h1>
+        <button onClick={toggleTheme} >Change</button>
+        <h1>{theme}</h1>
     </div>
-  );
-};
+  )
+}
 
-export default  Child; 
+export default  Child
