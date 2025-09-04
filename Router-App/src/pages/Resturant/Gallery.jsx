@@ -1,0 +1,9 @@
+import React from 'react'
+
+const  Gallery = () => {
+  return (
+    <div><h1>Gallery</h1> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis provident consequatur, qui nisi voluptas accusantium autem soluta ipsa libero dicta temporibus minus quam. Explicabo ipsa quo corrupti sapiente. Nobis vero accusantium enim facilis consequuntur, tenetur necessitatibus atque quisquam at distinctio impedit quae eligendi rerum laudantium repellat odit asperiores ratione iste voluptatum aperiam nesciunt facere iusto veniam ipsum. Nobis error nihil neque corporis eum non unde inventore assumenda dignissimos, obcaecati consectetur eius illo veniam sequi impedit. Modi fugiat omnis perspiciatis, ducimus quidem architecto hic molestias cum eius cumque pariatur voluptatum velit ipsa reiciendis deserunt aliquam dignissimos minima maxime aperiam, qui ut tenetur aliquid? Odit modi minus labore sit perspiciatis architecto officia culpa ducimus placeat corrupti, voluptatem nihil hic. Commodi error eaque ipsa impedit? Hic dolor voluptate suscipit fugit? Exercitationem laboriosam veniam ratione aspernatur molestiae temporibus fuga eveniet unde itaque aut ad facere id distinctio, odit quas animi repudiandae et ipsum atque numquam, non minus consequuntur. Ea, labore. Veniam, quo neque consequatur at atque minus, sunt facilis nemo ipsum ullam animi eum! Mollitia, nam iure eos assumenda laboriosam nobis quas quod illum asperiores sapiente dolores veritatis consectetur cupiditate sunt ut architecto ipsa corporis quia necessitatibus, nesciunt quo sint excepturi perspiciatis suscipit.</p> </div>
+  )
+}
+
+export default  Gallery
